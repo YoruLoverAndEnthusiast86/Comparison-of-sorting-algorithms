@@ -1,0 +1,27 @@
+void Heapify(long long *array,long long index,long long size)
+{
+    long long left = 2*index ;
+    long long right = 2*index+1 ;
+    long long maxim = index ;
+    if(left <= size && array[left] > array[maxim])
+        maxim = left;
+    if(right <= size && array[right] > array[maxim])
+        maxim = right ;
+    if(maxim != index)
+    {
+        swap(array+index,array+maxim) ;
+        Heapify(array,maxim,size) ;
+    }
+}
+
+void HeapSort(long long *array,long long size)
+{
+    for(long long i = size/2 - 1 ; i >= 0 ; i--)
+        Heapify(array,i,size-1) ;
+
+    for(long long i = size-1 ; i > 0 ; i--)
+    {
+        swap(array+0,array+i) ;
+        Heapify(array,0,i-1) ;
+    }
+}
