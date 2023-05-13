@@ -1,0 +1,9 @@
+void InsertionSort(long long *array,long long size)
+{
+     for(long long i = 1 ; i < size ; i++)
+        for(long long j = i ; j >= 1 ; j--)
+          if(array[j-1]>array[j])
+                swap(array+j-1,array+j) ;
+         else
+            break ;
+}

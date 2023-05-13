@@ -1,0 +1,7 @@
+void BubbleSort(long long *array,long long size)
+{
+    for(long long i = size-2 ; i >=0 ; i--)
+        for(long long j = 0 ; j <= i ; j++)
+            if(array[j]>array[j+1])
+                swap(array+j,array+j+1) ;
+}

@@ -1,0 +1,20 @@
+void quick_sort(long long *v,long long li,long long ls)
+{
+    if(li >= ls)
+        return ;
+    long long pivot = (rand() % (ls-li+1))+li ;
+    long long i = li,j = li ;
+    swap(v+pivot,v+ls) ;
+    while(j < ls)
+    {
+    if(v[j] < v[ls])
+    {
+        swap(v+j,v+i) ;
+        i++ ;
+    }
+    j++ ;
+    }
+    swap(v+i,v+ls) ;
+    quick_sort(v,li,i-1) ;
+    quick_sort(v,i+1,ls) ;
+}

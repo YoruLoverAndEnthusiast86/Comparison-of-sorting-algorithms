@@ -1,0 +1,30 @@
+long long c[100000001] ;
+void mergee(long long *array,long long li,long long mid,long long ls)
+{
+    long long i=li;
+    long long k=0;
+    long long j=mid+1;
+    while(i<=mid && j<=ls)
+    {
+        if(array[i]<array[j])
+            c[++k]=array[i++];
+        else
+            c[++k]=array[j++];
+    }
+    while(i<=mid)
+        c[++k]=array[i++];
+    while(j<=ls)
+        c[++k]=array[j++];
+    for(k=1,i=li;i<=ls;i++,k++)
+        array[i]=c[k];
+}
+void mergesort(long long *array,long long li,long long ls)
+{
+    if(li<ls)
+    {
+        long long mid=(li+ls)/2;
+        mergesort(array,li,mid);
+        mergesort(array,mid+1,ls);
+        mergee(array,li,mid,ls);
+    }
+}

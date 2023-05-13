@@ -1,0 +1,7 @@
+void SelectionSort(long long *array,long long size)
+{
+    for(long long i = 0 ; i < size-1 ; i++)
+        for(long long j = i+1 ; j < size ; j++)
+            if(array[j]<array[i])
+                swap(array+i,array+j) ;
+}
